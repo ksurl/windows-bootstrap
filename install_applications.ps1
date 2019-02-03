@@ -83,6 +83,6 @@ switch ($install) {
     Default { $apps = $minimal }
 }
 
-foreach ($app in $install) {
+foreach ($app in $apps) {
     choco.exe install -y $app
 }
