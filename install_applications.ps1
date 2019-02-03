@@ -1,4 +1,27 @@
-$apps = @(
+param([string]$install="minimal")
+
+$minimal = @(
+    "7zip.install"
+    "authy-desktop"
+    "bitwarden"
+    "discord.install"
+    "ditto"
+    "firefox"
+    "git.install"
+    "google-backup-and-sync"
+    "googlechrome"
+    "greenshot"
+    "keepass.install"
+    "mpc-be"
+    "notepadplusplus.install"
+    "openssh"
+    "sumatrapdf.install"
+    "teracopy"
+    "veeam-agent"
+    "vscode"
+)
+
+$full = @(
     "7zip.install"
     "authy-desktop"
     "audacity"
@@ -20,7 +43,7 @@ $apps = @(
     "firefox"
     #"freefilesync"
     "git.install"
-    #"google-backup-and-sync"
+    "google-backup-and-sync"
     "googlechrome"
     "greenshot"
     "imgburn"
@@ -30,21 +53,21 @@ $apps = @(
     "notepadplusplus.install"
     "obs-studio"
     #"open-shell"
-    "openssh -params /SSHAgentFeature"
+    "openssh"
     "packer"
     #"playnite"
     "plexmediaserver"
-    #"python --version 3.7.2"
+    "python3"
     #"spotify"
-    #"steam"
-    "sumatrapdf.commandline"
+    "steam"
+    "sumatrapdf.install"
     "sysinternals"
     "taiga"
     "teracopy"
     #"ums"
     #"uplay"
     "veeam-agent"
-    "visualstudiocode"
+    "vscode"
     "vmware-horizon-client"
     "vmwareworkstation"
     "vnc-connect"
@@ -54,4 +77,12 @@ $apps = @(
     #"yumi"
 )
 
-foreach ($app in $apps) { choco.exe install -y $app }
+switch ($install) {
+    "minimal" { $apps = $minimal }
+    "full" { $apps = $full }
+    Default { $apps = $minimal }
+}
+
+foreach ($app in $install) {
+    choco.exe install -y $app
+}
