@@ -7,14 +7,14 @@ $minimal = @(
     "discord.install"
     "ditto"
     "firefox"
-    "git.install"
+    "git.install --params `"/NoShellIntegration`""
     "google-backup-and-sync"
     "googlechrome"
     "greenshot"
     "keepass.install"
     "mpc-be"
     "notepadplusplus.install"
-    "openssh"
+    "openssh --params `"/SSHAgentFeature`""
     "sumatrapdf.install"
     "teracopy"
     "veeam-agent"
@@ -31,6 +31,7 @@ $full = @(
     "caddy"
     "calibre"
     "chocolateygui"
+    #"cmdermini"
     "deluge"
     "discord.install"
     "ditto"
@@ -42,7 +43,7 @@ $full = @(
     "filezilla"
     "firefox"
     #"freefilesync"
-    "git.install"
+    "git.install --params `"/NoShellIntegration`""
     "google-backup-and-sync"
     "googlechrome"
     "greenshot"
@@ -53,7 +54,7 @@ $full = @(
     "notepadplusplus.install"
     "obs-studio"
     #"open-shell"
-    "openssh"
+    "openssh --params `"/SSHAgentFeature`""
     "packer"
     #"playnite"
     "plexmediaserver"
@@ -74,6 +75,7 @@ $full = @(
     "vnc-viewer"
     #"winauth"
     #"wsl"
+    "wsltty"
     #"yumi"
 )
 
@@ -83,6 +85,6 @@ switch ($install) {
     Default { $apps = $minimal }
 }
 
-foreach ($app in $install) {
+foreach ($app in $apps) {
     choco.exe install -y $app
 }
