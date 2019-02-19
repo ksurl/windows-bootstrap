@@ -57,7 +57,7 @@ $full = @(
     "packer"
     #"playnite"
     "plexmediaserver"
-    "python3"
+    "python3 --params `"/InstallDir:$env:localappdata\Programs\Python\Python37`""
     #"spotify"
     "steam"
     "sumatrapdf.install"
