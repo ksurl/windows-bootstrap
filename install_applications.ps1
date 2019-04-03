@@ -80,6 +80,20 @@ $full = @(
     #"yumi"
 )
 
+$selfupdating = @(
+    "bitwarden"
+    "discord.install"
+    "filezilla"
+    "Firefox"
+    "GoogleChrome"
+    "mailspring"
+    "plexmediaserver"
+    "steam"
+    "uplay"
+    "vmwareworkstation"
+    "vscode"
+)
+
 switch ($install) {
     "minimal" { $apps = $minimal }
     "full" { $apps = $full }
@@ -88,4 +102,10 @@ switch ($install) {
 
 foreach ($app in $apps) {
     choco.exe install -y $app
+}
+
+foreach ($app in $selfupdating) {
+    if (Test-Path -Path "C:\ProgramData\chocolatey\lib\$app") {
+        Remove-Item -Path "C:\ProgramData\chocolatey\lib\$app" -Recurse -Force
+    }
 }
