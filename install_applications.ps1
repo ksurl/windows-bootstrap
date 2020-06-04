@@ -2,46 +2,86 @@ param([string]$install="minimal")
 
 $minimal = @(
     "7zip"
+    "authy"
     "chrome"
-    "Discord"
-    "Firefox"
-    "Git"
-    "Greenshot"
-    "KeePass"
-    "NPP"
+    "discord"
+    "ditto"
+    "firefox"
+    "git"
+    #"google-backup-and-sync"
+    "greenshot"
+    "keepass"
+    #"mpc-be"
+    "npp"
     #"openssh"
+    #"sumatrapdf"
+    #"teracopy"
+    #"veeam-agent"
     "vscode"
 )
 
 $full = @(
     "7zip"
+    "authy"
+    #"audacity"
+    #"audacity-lame"
+    "bulkrenameutility"
+    "calibre"
     "chrome"
-    "Discord"
-    "Etcher"
-    "Filezilla"
-    "Firefox"
-    "Git"
-    "Greenshot"
-    "KeePass"
-    "NPP"
+    "discord"
+    "ditto"
+    "docker"
+    "egs"
+    "etcher"
+    #"ffmpeg"
+    "filezilla"
+    "firefox"
+    "git"
+    "greenshot"
+    "hexchat"
+    #"imgburn"
+    "keepass"
+    #"mpc-be"
+    "npp"
     "obsstudio"
     #"openssh"
+    "playnite"
+    "plexmediaplayer"
+    #"postbox"
     #"pwsh"
     "python"
     "spotify"
     "steam"
+    #"sumatrapdf"
+    "telegram"
+    #"teracopy"
+    "transmission"
     #"ubuntu"
+    "uplay"
+    #"veeam-agent"
+    #"vnc-viewer"
+    #"vnc-server"
     "vscode"
-    #"Windows Terminal"
+    "vmware-horizonclient"
+    "vmware-workstationpro"
+    "terminal"
+    "wireguard"
 )
 
 $selfupdating = @(
     "discord"
+    "chrome"
+    "egs"
     "filezilla"
-    "Firefox"
-    "GoogleChrome"
+    "firefox"
+    #"plexmediaplayer"
+    #"postbox"
+    #"spotify"
     "steam"
+    "telegram"
+    "uplay"
     "vscode"
+    #"terminal"
 )
 
 switch ($install) {
@@ -54,10 +94,10 @@ foreach ($app in $apps) {
     winget.exe install $app
 }
 
-<#
+
 foreach ($app in $selfupdating) {
-    if (Test-Path -Path "C:\ProgramData\chocolatey\lib\$app") {
-        Remove-Item -Path "C:\ProgramData\chocolatey\lib\$app" -Recurse -Force
+    if ($app) {
+        # remove app from winget installed list without uninstalling
+        Write-Host 'noop'
     }
 }
-#>
