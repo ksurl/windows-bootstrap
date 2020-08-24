@@ -25,6 +25,7 @@ $full = @(
     "authy"
     #"audacity"
     #"audacity-lame"
+    "battlenet"
     "bulkrenameutility"
     "calibre"
     "chrome"
@@ -47,12 +48,12 @@ $full = @(
     #"openssh"
     "playnite"
     "plexmediaplayer"
-    #"postbox"
+    "postbox"
     #"pwsh"
     "python"
     "spotify"
     "steam"
-    #"sumatrapdf"
+    "sumatrapdf"
     "telegram"
     #"teracopy"
     "transmission"
@@ -65,7 +66,7 @@ $full = @(
     "vmware-horizonclient"
     "vmware-workstationpro"
     "terminal"
-    "wireguard"
+    #"wireguard"
 )
 
 $selfupdating = @(
@@ -75,13 +76,13 @@ $selfupdating = @(
     "filezilla"
     "firefox"
     #"plexmediaplayer"
-    #"postbox"
-    #"spotify"
+    "postbox"
+    "spotify"
     "steam"
     "telegram"
     "uplay"
     "vscode"
-    #"terminal"
+    "terminal"
 )
 
 switch ($install) {
