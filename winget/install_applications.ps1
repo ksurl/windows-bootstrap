@@ -17,6 +17,7 @@ $minimal = @(
 $full = @(
     "7zip"
     "authy"
+    "balenaetcher"
     "battlenet"
     "bitwarden"
     "bulkrenameutility"
@@ -24,7 +25,6 @@ $full = @(
     "discord"
     "ea app"
     "egs"
-    "balenaetcher"
     #"ffmpeg"
     "filezilla"
     "firefox"
